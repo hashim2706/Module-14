@@ -25,8 +25,7 @@ To write a Python program to insert elements at REAR END of deque using a collec
 ### PROGRAM  
 
 ```
-#Reg_no: 212223060288
-#Name: Tharun Kumaran G
+
 
 import collections
 
