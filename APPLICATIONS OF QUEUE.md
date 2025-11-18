@@ -1,4 +1,4 @@
-# Exp.No:40  
+# Exp.No:14a
 ## APPLICATIONS OF QUEUE
 
 ---
@@ -33,65 +33,33 @@ To write a Python program to implement CPU Process Scheduling using a queue.
 
 ```
 
-def findWaitingTime(processes, n, bt, wt):
-	wt[0] = 0
-	for i in range(1, n ):
-		wt[i] = bt[i - 1] + wt[i - 1]
-
-def findTurnAroundTime(processes, n,
-					bt, wt, tat):
-
-	for i in range(n):
-		tat[i] = bt[i] + wt[i]
-
-def findavgTime( processes, n, bt):
-
-	wt = [0] * n
-	tat = [0] * n
-	total_wt = 0
-	total_tat = 0
-
-	findWaitingTime(processes, n, bt, wt)
-
-	findTurnAroundTime(processes, n,
-					bt, wt, tat)
-
-	print( "Processes Burst time " +
-				" Waiting time " +
-				" Turn around time")
-
-	
-	
-	for i in range(0,n):
-	    total_wt+=wt[i]
-	    total_tat+=tat[i]
-	    print(" "+str(i+1)+"   "+str(bt[i])+"  "+str(wt[i])+"    "+str(tat[i]))
-	
-		
-	
-	print( "Average waiting time = "+
-				str(total_wt / n))
-	print("Average turn around time = "+
-					str(total_tat / n))
-
-if __name__ =="__main__":
-	
-	processes = [ 1, 2, 3]
-	n = len(processes)
-
-	t0=int(input())
-	t1=int(input())
-	t2=int(input())
-	burst_time = [t0,t1,t2]
-
-	findavgTime(processes, n, burst_time)
+def CalculateWaitingTime(at, bt, N):
+	wt = [0]*N;
+	wt[0] = 0;
+	print("P.No.\tArrival Time\t" , "Burst Time\tWaiting Time");
+	print("1" , "\t\t" , at[0] , "\t\t" , bt[0] , "\t\t" , wt[0]);
+	for i in range(1,5):
+		wt[i] = (at[i - 1] + bt[i - 1] + wt[i - 1]) - at[i];
+		print(i + 1 , "\t\t" , at[i] , "\t\t" , bt[i] , "\t\t" , wt[i]);
+	average = 0.0;
+	sum = 0;
+	for i in range(5):
+		sum = sum + wt[i];
+	average = sum / 5;
+	print("Average waiting time = " , average);
+at = [ 0, 1, 2, 3, 4 ];
+bt=[]
+for i in range(5):
+    ele = int(input())
+    bt.append(ele)
+CalculateWaitingTime(at, bt, N);
 
 ```
 
 ### OUTPUT
+![image](https://github.com/user-attachments/assets/d9fd7f66-3624-428d-84aa-671f229b4537)
 
-![image](https://github.com/user-attachments/assets/739fde2e-152e-4ce6-adc6-3b07cdc4ea82)
+
 
 ### RESULT
-
-Thus, the python program to implement CPU Process Scheduling using a queue has been executed and verified successfully.
+Thus the Python program to implement CPU Process Scheduling using a queue implemented and executed successfully
